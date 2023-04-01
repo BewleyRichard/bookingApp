@@ -14,7 +14,6 @@ import path from "path";
 
 
 const PORT = process.env.PORT || 8800;
-const express = require('express');
 const app = express();
 const publicPath = path.join(__dirname, "..", "public");
 
