@@ -12,10 +12,12 @@ import cors from "cors";
 import path from "path";
 // import { fileURLToPath } from 'url';
 
-
-
+const path = require('path')
+const PORT = process.env.PORT || 8800;
+const express = require('express');
 const app = express();
 const publicPath = path.join(__dirname, "..", "public");
+
 app.use(express.static(publicPath));
 app.get('*',(req,res)=>  {
   res.sendFile(path.join(publicPath,'index.html'));
@@ -34,7 +36,7 @@ app.get('*',(req,res)=>  {
 //   });
 // }
 
-const path = require('path')
+
 
 
 
@@ -77,8 +79,6 @@ app.use((err, req, res, next) => {
   });
 
 // Listen for request. 
-const PORT = process.env.PORT || 8800;
-
 app.listen(PORT, () => {
     connect();
     console.log("Listening on port: 8800")
