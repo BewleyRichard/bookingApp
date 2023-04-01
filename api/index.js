@@ -15,11 +15,13 @@ import { fileURLToPath } from 'url';
 
 
 const app = express();
-dotenv.config({ path: path.resolve(__dirname, './.env') });
 
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+
+dotenv.config({ path: path.resolve(__dirname, './.env') });
 
 if (process.env.NODE_ENV === 'production'){
   app.use(express.static(path.join(__dirname, 'client/build')));
