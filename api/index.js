@@ -12,7 +12,7 @@ import cors from "cors";
 import path from "path";
 // import { fileURLToPath } from 'url';
 
-const path = require('path')
+
 const PORT = process.env.PORT || 8800;
 const express = require('express');
 const app = express();
