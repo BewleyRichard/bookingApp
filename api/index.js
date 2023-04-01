@@ -15,7 +15,7 @@ import { fileURLToPath } from 'url';
 
 
 const app = express();
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, './.env') });
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === 'production'){
   });
 }
 
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 
 // Connect to mongoDB.
 const connect = async () => {
