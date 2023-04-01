@@ -51,7 +51,9 @@ app.use((err, req, res, next) => {
   });
 
 // Listen for request. 
-app.listen(8800, () => {
+const PORT = process.env.PORT || 8800;
+
+app.listen(PORT, () => {
     connect();
     console.log("Listening on port: 8800")
   });
