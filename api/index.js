@@ -10,11 +10,16 @@ import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
-// import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url';
 
 
 const PORT = process.env.PORT || 8800;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const publicPath = path.join(__dirname, "..", "public");
+
+
+
 
 app.use(express.static(publicPath));
 app.get('*',(req,res)=>  {
@@ -22,8 +27,6 @@ app.get('*',(req,res)=>  {
 });
 
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 
 // dotenv.config({ path: path.resolve(__dirname, './.env') });
