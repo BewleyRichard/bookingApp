@@ -10,25 +10,30 @@ import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
+import { fileURLToPath } from 'url';
+
 
 
 const app = express();
 dotenv.config();
 
 
-// if (process.env.NODE_ENV === 'production'){
-//   app.use(express.static(path.join(__dirname, 'client/build')));
-//     app.get('*',(req,res)=>  {res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-//   });
-// }
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+if (process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, 'client/build')));
+    app.get('*',(req,res)=>  {res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+  });
+}
 
-// Handle React routing, return all requests to React app
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+// // Serve static files from the React app
+// app.use(express.static(path.join(__dirname, 'client/build')));
+
+// // Handle React routing, return all requests to React app
+// app.get('*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
 
 
 
