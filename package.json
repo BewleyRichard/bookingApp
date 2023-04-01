@@ -4,7 +4,8 @@
     },
     "scripts": {
         "start": "cd api && node index.js",
-        "heroku-postbuild": "cd client && npm install && npm run build"
+        "heroku-postbuild": "cd api && node index.js && cd client && npm start && npm run build client"
+
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.3.0",
