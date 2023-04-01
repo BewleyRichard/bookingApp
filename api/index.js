@@ -34,11 +34,6 @@ app.get('*',(req,res)=>  {
 //   });
 // }
 
-
-
-
-
-
 // Connect to mongoDB.
 const connect = async () => {
     try{
