@@ -10,24 +10,33 @@ import roomsRoute from "./routes/rooms.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 
 
 
 const app = express();
+const publicPath = path.join(__dirname, "..", "public");
+app.use(express.static(publicPath));
+app.get('*',(req,res)=>  {
+  res.sendFile(path.join(publicPath,'index.html'));
+});
 
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 
 
-dotenv.config({ path: path.resolve(__dirname, './.env') });
+// dotenv.config({ path: path.resolve(__dirname, './.env') });
 
-if (process.env.NODE_ENV === 'production'){
-  app.use(express.static(path.join(__dirname, 'client/build')));
-    app.get('*',(req,res)=>  {res.sendFile(path.resolve(__dirname,'client','build','index.html'))
-  });
-}
+// if (process.env.NODE_ENV === 'production'){
+//   app.use(express.static(path.join(__dirname, 'client/build')));
+//     app.get('*',(req,res)=>  {res.sendFile(path.resolve(__dirname,'client','build','index.html'))
+//   });
+// }
+
+const path = require('path')
+
+
 
 
 // Connect to mongoDB.
